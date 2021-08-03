@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>文件导出</title>
+</head>
+<body>
+	<button id='btn'>导出文件</button>
+	<script type="text/javascript">
+		document.getElementById('btn').onclick=function() {
+			const xhr = new XMLHttpRequest()
+			xhr.open('GET', 'localhost:8008', true)
+			xhr.responseType = 'blob'
+			xhr.withCredentials=true
+			console.log(xhr)
+			xhr.onload = function () {
+				console.log(xhr === this)
+			}
+			xhr.send()
+		}
+	</script>
+</body>
+</html>
