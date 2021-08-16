@@ -1,0 +1,19 @@
+{
+  "name": "01-01-02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "01-flow.js",
+  "scripts": {
+    "flow": "flow",
+    "build": "flow-remove-types ./ -d dist/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "flow-bin": "^0.157.0"
+  },
+  "dependencies": {
+    "flow-remove-types": "^2.157.0"
+  }
+}
