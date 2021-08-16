@@ -1,4 +1,10 @@
-// @flow
+/**
+ * 
+ * @param {*} a 
+ * @param {*} b 
+ * @returns 
+ * @flow
+ */
 /* 
 1，本次主要介绍什么是强类型什么是弱类型？什么是静态类型什么是动态类型？他们之间有什么不一样？
 2，javasrcript自由的类型系统的问题？对我们工作造成了什么影响
@@ -22,13 +28,49 @@
 三，flow类型检测器：为javascript提供了更完善的类型系统。
 */
 
+// const { number } = require("mathjs");
+
 /*
 flow 使用总结：
 1，
 */
+import { callbackify } from "util";
+
 function sum(a: number, b: number) {
 	return a + b
 }
 
 sum(100, 'a');
 sum('b', 'a');
+
+function square(n) {
+	return n * n;
+}
+
+square('100');
+
+function foo(): number {
+	return 100;
+}
+
+const a: string = 'a';
+const b: number = NaN;
+
+const arr: Array<number> = [1, 3, 3];
+const arr1: number[] = [1, 3, 4];
+
+// 元组
+const arr2: [string, number] = [';a', 1];
+
+const obj: { [string]: string } = {
+	'a': 'b',
+	'a': 'b',
+}
+
+function foo2(callback: (string, number) => void) {
+	callback('string', 100);
+}
+
+foo2(function('100', '200') {
+
+})
