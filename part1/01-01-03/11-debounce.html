@@ -7,15 +7,46 @@
     <title>防抖函数实现</title>
 </head>
 <body>
-    <script>
-    </script>
+    <button id="btn">点击</button>
     <script>
         const btn = document.getElementById('btn')
-        console.log(btn)
-        btn.onclick = function() {
-            console.log(this)
+        /** 
+         * handle 最终需要执行的事件监听
+         * wait事件触发之后多久开始执行
+         * immediate控制第一次执行还是第一次执行， false 执行最后一次
+         * 
+        */
+        function myDebounce(handle, wait, immediate) {
+            if (typeof handle !== 'function') {
+                throw Error('监听事件为函数')
+            }
+            if (typeof wait === 'boolean') {
+                wait = 1000
+                immediate = wait
+            }
+            if (wait === undefined) {
+                wait = 1000
+            }
+            if(immediate === undefined) {
+                immediate = false
+            }
+            let timer = null;
+            return function() {
+                if (immediate && !timer) {
+                    handle()
+                    timer = setTimeout(() => {
+                        timer = null
+                    }, wait)
+                } else {
+                    clearTimeout(timer)
+                    timer = setTimeout(handle, wait)
+                }
+            }
         }
+        const btnClick = function () {
+            console.log('点击按钮')
+        }
+        btn.onclick = myDebounce(btnClick)
     </script>
-    <button id="btn">点击</button>
 </body>
 </html>
