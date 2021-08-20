@@ -13,9 +13,38 @@
 </style>
 <body>
     <script>
-        function scroll() {
-            console.log('滚动了')
+        let timer = null
+        function scroll(e) {
+            // console.log('滚动了', e, this)
+            timer = setTimeout(() => {
+                console.log('取消内部定时器, 内部timer', timer)
+                clearTimeout(timer)
+            }, 1000)
+            console.log(timer, '外部timer')
         }
+        // function myThrottle (handle, wait) {
+        //     if (typeof handle !== 'function') throw Error('handle must be a funtion')
+        //     if (typeof wait === 'undefined') wait = 500
+        //     let timer = null
+        //     let pre = null
+        //     return function (...args) {
+        //         let now = new Date()
+        //         const interval = wait - (now - pre)
+        //         const self = this
+        //         if(interval <= 0) {
+        //             clearTimeout(timer)
+        //             handle.call(this, ...args)
+        //             pre = new Date()
+        //         } else {
+        //             clearTimeout(timer)
+        //             timer = setTimeout(() => {
+        //                 handle.call(self, ...args)
+        //                 pre = new Date()
+        //             }, interval);
+        //         }
+        //     }
+        // }
+        // window.onscroll = myThrottle(scroll)
         window.onscroll = scroll
     </script>
 </body>

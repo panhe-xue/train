@@ -31,20 +31,21 @@
                 immediate = false
             }
             let timer = null;
-            return function() {
+            return function(...args) {
+                let self = this
                 if (immediate && !timer) {
-                    handle()
+                    handle.call(self, ...args)
                     timer = setTimeout(() => {
                         timer = null
                     }, wait)
                 } else {
                     clearTimeout(timer)
-                    timer = setTimeout(handle, wait)
+                    timer = setTimeout(handle.bind(self, ...args), wait)
                 }
             }
         }
-        const btnClick = function () {
-            console.log('点击按钮')
+        const btnClick = function (e) {
+            console.log('点击按钮', e, this)
         }
         btn.onclick = myDebounce(btnClick)
     </script>
