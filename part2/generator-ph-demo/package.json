@@ -1,0 +1,16 @@
+{
+  "name": "generator-ph-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "plop": "plop"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "plop": "^2.7.4",
+    "yeoman-generator": "^5.4.2"
+  }
+}
