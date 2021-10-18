@@ -17,6 +17,7 @@
     "@babel/core": "^7.15.0",
     "@babel/preset-flow": "^7.14.5",
     "big.js": "^6.1.1",
+    "eslint": "^8.0.0",
     "generator-sample": "0.0.1",
     "mathjs": "^9.4.4",
     "xlsx": "^0.17.0"
