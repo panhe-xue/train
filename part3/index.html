@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+       
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        const NotFound = { template: '<p> <input v-focus />Page not found</p>' }
+        const Home = { template: '<p>home page</p>' }
+        const About = { template: '<p>about page</p>' }
+
+        const routes = {
+            '/': Home,
+            '/about': About
+        }
+        Vue.directive('focus', {
+            inserted(el, binding) {
+                console.log(el, binding, 'binding')
+                el.focus()
+            }
+        })
+        new Vue({
+            el: '#app',
+            data: {
+                currentRoute: window.location.pathname
+            },
+            // directives: {
+            //     focus: {
+            //         // 指令的定义
+            //         inserted: function (el) {
+            //             el.focus()
+            //         }
+            //     }
+            // },
+            computed: {
+                ViewComponent() {
+                    console.log(window.location.pathname, 'window.location.pathname');
+                    return routes[this.currentRoute] || NotFound
+                }
+            },
+            render (h) {
+                return h(this.ViewComponent)
+            }
+        })
+    </script>
+</body>
+</html>
