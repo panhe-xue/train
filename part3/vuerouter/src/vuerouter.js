@@ -48,8 +48,8 @@ class VueRouter {
             },
             methods: {
                 handle(e) {
-                    history.pushState({}, '', this.to)
                     e.preventDefault()
+                    history.pushState({}, '', this.to)
                     this.$router.data.current = this.to
                 }
             }
