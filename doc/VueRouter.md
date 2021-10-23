@@ -108,7 +108,7 @@ export const supportsPushState = inBrowser &&
     1.1 hash模式
         1.1.1 地址后面会有#，比如： https://baidu.com/#abc.
         1.1.2 兼容性好，基本上的浏览器都会支持
-        1.1.3 底层使用 支持的话就使用（window.location.pushstate || window.location[replace ? 'replace' : 'assign'](url)） 否则 window.location.hash = path 如果可以监听 'popstate' : 'hashchange'
+        1.1.3 底层使用 支持的话就使用（window.location.pushstate || window.loc ation[replace ? 'replace' : 'assign'](url)） 否则 window.location.hash = path 如果可以监听 'popstate' : 'hashchange'
     1.2 history模式
         1.1.1 地址是正常的形式 比如： https://www.baidu.com/asdd/ads
         1.1.2 兼容性不好，只支持h5的history的浏览器
