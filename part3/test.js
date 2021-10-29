@@ -1,21 +1,21 @@
-var object = {
-    a: 'ceshi',
-    b: 'cccc'
-}
+// var object = {
+//     a: 'ceshi',
+//     b: 'cccc'
+// }
 
-var vm = new Proxy(object, {
-    get(target, key) {
-        console.log(target, key)
-        return object[key]
-    },
-    set(target, key, newValue) {
-        console.log(target, key, newValue, target[key] === newValue)
-        if (target[key] === newValue) {
-            return
-        }
-        target[key] = newValue
-    },
-})
+// var vm = new Proxy(object, {
+//     get(target, key) {
+//         console.log(target, key)
+//         return object[key]
+//     },
+//     set(target, key, newValue) {
+//         console.log(target, key, newValue, target[key] === newValue)
+//         if (target[key] === newValue) {
+//             return
+//         }
+//         target[key] = newValue
+//     },
+// })
 // Object.defineProperty(vm, 'a', {
 //     // value: 'a',
 //     // writable: true,
@@ -34,3 +34,10 @@ var vm = new Proxy(object, {
 //     }
 // })
 
+function a () {
+    while(true) {
+        // console.log('a')
+        return true
+    }
+}
+console.log(a())
