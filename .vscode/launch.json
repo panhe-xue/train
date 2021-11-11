@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/../github/training-program/tapable/test.js"
+            "program": "${workspaceFolder}/../tran/test.js"
         }
     ]
 }
