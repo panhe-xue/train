@@ -1,7 +1,6 @@
 {
   "name": "npm",
   "version": "1.0.0",
-  "description": "",
   "main": "11-curry-demo.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -22,5 +21,18 @@
     "mathjs": "^9.4.4",
     "vue-router": "^3.5.2",
     "xlsx": "^0.17.0"
-  }
+  },
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/panhe-xue/train.git"
+  },
+  "bugs": {
+    "url": "https://github.com/panhe-xue/train/issues"
+  },
+  "homepage": "https://github.com/panhe-xue/train#readme",
+  "description": ""
 }

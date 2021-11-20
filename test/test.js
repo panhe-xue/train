@@ -37,7 +37,7 @@
 //     }
 // })
 
-function Person(name, age) {
+// function Person(name, age) {
     // this.name = name
     // this.age = age
     // this.sayName = function() {
@@ -46,19 +46,34 @@ function Person(name, age) {
     // var name = 'ph'
     // console.log('name', name)
     // this.name = 'panhe'
-}
+// }
 
 // Person.prototype.sayAge = function () {
 //     return this.age
 // }
 
-const p = new Person('panhe', 28)
+// const p = new Person('panhe', 28)
 
-console.log(p)
-console.log(typeof p)
-console.log(p instanceof Person)
-console.log(Object.prototype.toString.call(p))
+// console.log(p)
+// console.log(typeof p)
+// console.log(p instanceof Person)
+// console.log(Object.prototype.toString.call(p))
 // console.log(p.sayName())
 // console.log(p.sayAge())
 
 // 
+
+const data = {
+    valueOf: () => {console.log('valueof被调用了'); return 123},
+    toString: () => {console.log('tostring被调用了'); return 'adc'},
+  }
+  
+console.warn("data == 'abc'", data == 'abc'); // true
+console.warn("data === 123", data === 123); // false
+console.warn("`${data}`", `${data}`); // true
+console.warn("data + '' === 'abc'", data + '' === 'abc'); // false
+console.warn("+dat", +data)
+console.warn('Number(data)', Number(data))
+console.warn('isNaN(data)', isNaN(data))
+console.warn('JSON.stringify(data)', JSON.stringify(data))
+console.warn('String(data)', String(data))

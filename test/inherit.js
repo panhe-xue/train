@@ -92,22 +92,161 @@
 // console.log('Object.getPrototypeOf(a)', Object.getPrototypeOf(a))
 // console.log('Object.getPrototypeOf(Object.getPrototypeOf(c))', Object.getPrototypeOf(Object.getPrototypeOf(c)))
 
-// 原型继承
-function object(o) {
-    function F() {}
-    F.prototype = o
-    return new F()
-}
-const cat = {
-    heart: '@',
-    colors: ['white', 'black']
-}
-const instance1 = object(cat)
-const instance2 = object(cat)
-instance1.heart = '0'
-instance1.colors.push('ll')
+// 原型式继承
+// function object(o) {
+//     function F() {}
+//     F.prototype = o
+//     return new F()
+// }
 
-console.log(instance1.heart)
-console.log(instance1.colors)
-console.log(instance2.heart)
-console.log(instance2.colors)
+// const cat = {
+//     heart: '@',
+//     colors: ['white', 'black']
+// }
+
+// // // 寄生式继承
+// function createAnthor(origin) {
+//     const clone = object(origin)
+//     clone.sayhi = function() {
+//         return 'hi'
+//     }
+//     return clone
+// }
+
+// const instance1 = createAnthor(cat)
+// instance1.heart = '0'
+// instance1.colors.push('ll')
+
+// console.log(instance1.heart)
+// console.log(instance1.colors)
+// console.log(instance1)
+// console.log(Object.getPrototypeOf(instance1))
+
+// 寄生组合继承
+// function object(o) {
+//     function F() {}
+//     F.prototype = o
+//     return new F()
+// }
+
+// function createAnthor(Child, Parent) {
+//     const prototype = object(Parent.prototype) // 产生一个对象指向 parent.prototype
+//     prototype.constructor = Child // 每个原型对象有一个constructor对象
+//     Child.prototype = prototype
+// }
+
+// function Person() {}
+// Person.prototype = {}
+// function Child() {}
+// Child.prototype = {}
+
+// Object.prototype.name = 'panhe'
+// const a = new Object()
+// console.log(a)
+// console.log(Object.getPrototypeOf(a))
+// console.log(a.name)
+
+// function Person() {}
+
+// const b = new Person()
+// console.log(b)
+// console.log(Object.getPrototypeOf(b))
+// console.log(Object.getPrototypeOf(Object.getPrototypeOf(b)))
+// console.log(b.name)
+
+
+
+// class Parent {
+//     constructor(name) {
+//         this.name = name
+//     }
+//     getname() {
+//         return this.name
+//     }
+// }
+
+// class Child extends Parent {
+//     constructor(name) {
+//         super(name)
+//     }
+// }
+
+// const c = new Child('随风行酱')
+// console.log('aa', c.getname())
+
+// "use strict";
+
+// function _inheritsLoose(subClass, superClass) { 
+//     subClass.prototype = Object.create(superClass.prototype); 
+//     subClass.prototype.constructor = subClass; _setPrototypeOf(subClass, superClass); 
+// }
+
+// function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+// var Parent = /*#__PURE__*/function () {
+//   function Parent(name) {
+//     this.name = name;
+//   }
+
+//   var _proto = Parent.prototype;
+
+//   _proto.getname = function getname() {
+//     return this.name;
+//   };
+
+//   return Parent;
+// }();
+
+// var Child = /*#__PURE__*/function (_Parent) {
+//   _inheritsLoose(Child, _Parent);
+
+//   function Child(name) {
+//     return _Parent.call(this, name) || this;
+//   }
+
+//   return Child;
+// }(Parent);
+
+// var c = new Child('随风行酱');
+// console.log('aa', c.getname());
+
+// function Person () {
+//   this.colors = ['red', 'green']
+// }
+// Person.prototype = {
+//   getColors: function() {
+//       return this.colors
+//   }
+// }
+// // child
+// function Child () {
+// }
+// Child.prototype = new Person()
+// const c1 = new Child()
+// const c2 = new Child()
+
+// c1.colors.push('black')
+// console.log(c1.colors)
+// console.log(c2.colors)
+
+
+// function Person () {
+//   this.colors = ['red', 'green']
+// }
+// Person.prototype = {
+//   getColors: function() {
+//       return this.colors
+//   }
+// }
+
+// function Child () {
+//   Person.call(this, ...arguments)
+//   this.colors = ['red', 'green']
+// }
+
+// const c1 = new Child();
+// // const c2 = new Child();
+// console.log(c1)
+// console.log(Object.getPrototypeOf(c1))
+// console.log(c1.colors) // ['red', 'green']
+// console.log(c2.getColors()) // undefiend
