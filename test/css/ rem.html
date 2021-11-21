@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rem</title>
+    <link href="./rem.css" rel="stylesheet" />
+</head>
+<body>
+    <p class="rem">rem 字体的大小</p>
+    <button id="btn">
+        改变html字体大小为20px
+    </button>
+    <br />
+    <button id="btn2">
+        改变html字体大小为12px
+    </button>
+</body>
+<script>
+document.getElementById('btn').addEventListener('click', function() {
+    document.documentElement.style = 'font-size: 20px'
+})
+document.getElementById('btn2').addEventListener('click', function() {
+    document.documentElement.style = 'font-size: 12px'
+})
+</script>
+</html>

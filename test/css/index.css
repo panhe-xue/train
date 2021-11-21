@@ -10,18 +10,40 @@ body {
     }
 }
 
+@media screen and (min-width: 375px) {
+  body {
+    font-size: 20px;
+      background-color: #0FF000;
+  }
+}
+
+
+@media screen and (min-width: 375px) and (-webkit-device-pixel-ratio: 2) {
+  body {
+    font-size: 20px;
+      background-color: darkcyan;
+  }
+}
+
 @media screen and (min-width: 375px) and (-webkit-device-pixel-ratio: 3) {
     body {
       font-size: 20px;
-        background-color: #0FF000;
+      background-color: darkgrey;
     }
 }
 
-@media screen and (min-width: 414px) {
+@media screen and (min-width: 414px) and (-webkit-device-pixel-ratio: 2) {
     body {
       font-size: 20px;
         background-color: blue;
     }
+}
+
+@media screen and (min-width: 414px) and (-webkit-device-pixel-ratio: 3) {
+  body {
+    font-size: 20px;
+      background-color: blue;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -44,4 +66,13 @@ body {
         background-color: #fff;
     }
 }
+#app {
+  border: 1px solid red;
+  width: 375px;
+  height: 667px;
+}
+
+/* 问题
+  修改 iphone 6/7/8 plus 的字体为 40px 背景色为 green
+ */
 /* 0-320: red, 320-375: yellow, 375-414: 0FF000, 414-768: blue, 768-1024: green, 1024-1100: FF00FF, >1100:black */
