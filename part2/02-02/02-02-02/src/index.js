@@ -21,16 +21,16 @@ import './js/login.js'
 // mul(value)
 // mul(value)
 
-import React from 'react'
-import ReactDOM from 'react-dom'
-import App from './js/App.jsx'
+// import React from 'react'
+// import ReactDOM from 'react-dom'
+// import App from './js/App.jsx'
 
 
-if(module.hot) {
-	module.hot.accept(['./js/*.js'], () => {
-		console.log('热更新。。。')
-	})
-}
+// if(module.hot) {
+// 	module.hot.accept(['./js/*.js'], () => {
+// 		console.log('热更新。。。')
+// 	})
+// }
 
 ReactDOM.render(<App />, document.getElementById('app'))
 

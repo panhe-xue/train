@@ -2,6 +2,9 @@ const path = require('path')
 const { DefinePlugin } = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
 	entry: './src/index',
@@ -9,7 +12,7 @@ module.exports = {
 		filename: 'index.js',
 		path: path.resolve(__dirname, 'dist')
 	},
-	mode: 'development',
+	// mode: 'development',
 	target: 'web',
 	devServer: {
 		hot: true,
@@ -24,11 +27,11 @@ module.exports = {
 		 	},
 			{
 				test: /\.css$/,
-				use: ['style-loader','css-loader']
+				use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
 	 		},
 			{
 				test: /\.less$/,
-				use: ['style-loader','css-loader', 'less-loader']
+				use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader']
 			},
 			{
 				test: /\.(png|jpg|webp)/,  
@@ -43,7 +46,18 @@ module.exports = {
 			}
 		]
 	},
+	optimization: {
+		minimizer: [
+		  // 在 webpack@5 中，你可以使用 `...` 语法来扩展现有的 minimizer（即 `terser-webpack-plugin`），将下一行取消注释
+		  // `...`,
+		  new CssMinimizerPlugin(),
+		  new TerserPlugin(),
+		],
+	  },
 	plugins: [
+		new  MiniCssExtractPlugin({
+			filename: 'css/[name].[hash:8].min.css',
+		}),
 		new CleanWebpackPlugin(),
 		new HtmlWebpackPlugin({
 			title: '插件使用',
