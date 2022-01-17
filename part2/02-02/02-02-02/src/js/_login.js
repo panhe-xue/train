@@ -1,3 +1,7 @@
+// import '../css/login.less'
+// import '../css/login.css'
+// import '../css/test.css'
+// import '../font/iconfont.css'
 
 export function login() {
 	const ele = document.createElement('h1')
@@ -12,3 +16,5 @@ export function funB() {
 }
 
 export const a = 'a'
+
+// document.body.appendChild(login())

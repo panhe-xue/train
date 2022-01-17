@@ -63,17 +63,30 @@
 
 // 
 
-const data = {
-    valueOf: () => {console.log('valueof被调用了'); return 123},
-    toString: () => {console.log('tostring被调用了'); return 'adc'},
-  }
+// const data = {
+//     valueOf: () => {console.log('valueof被调用了'); return 123},
+//     toString: () => {console.log('tostring被调用了'); return 'adc'},
+//   }
   
-console.warn("data == 'abc'", data == 'abc'); // true
-console.warn("data === 123", data === 123); // false
-console.warn("`${data}`", `${data}`); // true
-console.warn("data + '' === 'abc'", data + '' === 'abc'); // false
-console.warn("+dat", +data)
-console.warn('Number(data)', Number(data))
-console.warn('isNaN(data)', isNaN(data))
-console.warn('JSON.stringify(data)', JSON.stringify(data))
-console.warn('String(data)', String(data))
+// console.warn("data == 'abc'", data == 'abc'); // true
+// console.warn("data === 123", data === 123); // false
+// console.warn("`${data}`", `${data}`); // true
+// console.warn("data + '' === 'abc'", data + '' === 'abc'); // false
+// console.warn("+dat", +data)
+// console.warn('Number(data)', Number(data))
+// console.warn('isNaN(data)', isNaN(data))
+// console.warn('JSON.stringify(data)', JSON.stringify(data))
+// console.warn('String(data)', String(data))
+
+const test = (
+  console.log('1'),
+  console.log('2'),
+  console.log('3')
+)
+console.log(test)
+
+// function test1() {
+//   console.log('1')
+//   console.log('2')
+//   return 'a'
+// }
