@@ -11,6 +11,7 @@
   },
   "author": "",
   "license": "ISC",
+  "sideEffects": false,
   "dependencies": {
     "@babel/core": "^7.16.7",
     "@babel/polyfill": "^7.12.1",

@@ -1,5 +1,9 @@
+import '../css/login.less'
+// import '../css/login.css'
+// import '../css/test.css'
+import '../font/iconfont.css'
 
-export function login() {
+export default function login() {
 	const ele = document.createElement('h1')
 	ele.className = 'name example iconfont icon-linggan'
 
@@ -12,3 +16,5 @@ export function funB() {
 }
 
 export const a = 'a'
+
+window.testp = 'panhe'

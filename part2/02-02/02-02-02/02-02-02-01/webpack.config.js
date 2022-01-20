@@ -4,7 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-// const TerserPlugin = require("terser-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
 	entry: './src/index',
@@ -12,9 +12,11 @@ module.exports = {
 		filename: 'index.js',
 		path: path.resolve(__dirname, 'dist')
 	},
+	// mode: 'production',
 	mode: 'development',
+	// mode: 'none',
 	devtool: false,
-	target: 'web',
+	// target: 'web',
 	devServer: {
 		hot: true,
 		open: true,
@@ -48,13 +50,18 @@ module.exports = {
 		]
 	},
 	optimization: {
+		usedExports: true,
+		// providedExports: false,
+		concatenateModules: true,
+		sideEffects: true,
+		minimize: true,
 		minimizer: [
 		  // 在 webpack@5 中，你可以使用 `...` 语法来扩展现有的 minimizer（即 `terser-webpack-plugin`），将下一行取消注释
 		  // `...`,
 		  new CssMinimizerPlugin(),
 		//   new TerserPlugin(),
 		],
-	  },
+	},
 	plugins: [
 		new  MiniCssExtractPlugin({
 			filename: 'css/[name].[hash:8].min.css',
@@ -67,7 +74,5 @@ module.exports = {
 		new webpack.DefinePlugin({
 			BASE_URL: '"./"'
 		}),
-		// new TerserPlugin(),
-		// new webpack.optimize.ModuleConcatenationPlugin(),
 	]
 }
