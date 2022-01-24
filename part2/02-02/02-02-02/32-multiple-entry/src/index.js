@@ -1,22 +1,36 @@
-import fetchApi from './fetch'
-import './global.css'
-import './index.css'
+// import album from './album/album'
+// import post from './post'
 
-const mainElement = document.querySelector('.main')
+// const render = () => {
+//     console.log('hash改不了')
+//     const mainElement = document.querySelector('.main')
+//     const hash = window.location.hash || '#post'
+//      mainElement.innerHTML = ''
+//     if (hash === '#post') {
+//         post(mainElement)
+//     } else {
+//         album(mainElement)
+//     }
+// }
 
-fetchApi('/posts').then(data => {
-  data.forEach(item => {
-    const article = document.createElement('article')
-    article.className = 'post'
+// window.addEventListener('hashchange', render)
+import './common/global.css'
 
-    const h2 = document.createElement('h2')
-    h2.textContent = item.title
-    article.appendChild(h2)
+const render = () => {
+    console.log('hash改不了...')
+    const mainElement = document.querySelector('.main')
+    const hash = window.location.hash || '#post'
+    mainElement.innerHTML = ''
+    if (hash === '#post') {
+        import(/* webpackChunkName: 'post' */'./post').then(post => {
+            console.log(post, 'post...');
+            post['default'](mainElement)
+        })
+    } else {
+        import(/* webpackChunkName: 'album' */'./album/album').then(album => {
+            album['default'](mainElement)
+        })
+    }
+}
 
-    const paragraph = document.createElement('p')
-    paragraph.textContent = item.body
-    article.appendChild(paragraph)
-
-    mainElement.appendChild(article)
-  })
-})
+window.addEventListener('hashchange', render)
