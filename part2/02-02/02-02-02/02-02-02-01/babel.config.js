@@ -5,6 +5,6 @@
 		  "corejs": 2,
 		  "modules": false
 		}],
-		// '@babel/preset-react',
+		'@babel/preset-react',
 	],
 }

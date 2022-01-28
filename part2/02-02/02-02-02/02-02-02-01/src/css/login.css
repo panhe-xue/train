@@ -1,3 +1,15 @@
+html {
+	/* background-color: red; */
+}
 .name{
 	color: orange;
+}
+.editor {
+	position: relative;
+	padding: 10px;
+	outline: 0;
+	min-height: inherit;
+	z-index: 1;
+	color: red;
+	line-height: 1.8;
 }

@@ -24,13 +24,13 @@ module.exports = {
 	module: {
 		rules: [
 		 	{
-		 		test: /\.js?$/,
+		 		test: /\.jsx?$/,
 		 		exclude: /node_modules/,
 		 		use: ['babel-loader']
 		 	},
 			{
 				test: /\.css$/,
-				use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
+				use: ['style-loader', 'css-loader', 'postcss-loader']
 	 		},
 			{
 				test: /\.less$/,
@@ -53,7 +53,7 @@ module.exports = {
 		usedExports: true,
 		// providedExports: false,
 		concatenateModules: true,
-		sideEffects: true,
+		sideEffects: false,
 		minimize: true,
 		minimizer: [
 		  // 在 webpack@5 中，你可以使用 `...` 语法来扩展现有的 minimizer（即 `terser-webpack-plugin`），将下一行取消注释
@@ -74,5 +74,6 @@ module.exports = {
 		new webpack.DefinePlugin({
 			BASE_URL: '"./"'
 		}),
+		new webpack.HotModuleReplacementPlugin()
 	]
 }
