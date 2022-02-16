@@ -19,4 +19,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './js/App.jsx'
 
+// module.hot.accept('./js/App.jsx', (param) => {
+//     console.log('首页文件修改了', param)
+//     ReactDOM.render(<App />, document.getElementById('app'))
+// })
+
 ReactDOM.render(<App />, document.getElementById('app'))
+
+if (module.hot) {
+    module.hot.accept();
+}

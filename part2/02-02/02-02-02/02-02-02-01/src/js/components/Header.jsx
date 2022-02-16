@@ -5,6 +5,9 @@ export default class App extends Component {
 		super()
 	}
 	render () {
-		return <div>头部组件。。。</div>
+		return <div>
+			<div contentEditable></div>
+			头部组件。。。123头部
+		</div>
 	}
 }

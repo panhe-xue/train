@@ -5,6 +5,6 @@ export default class App extends Component {
 		super()
 	}
 	render () {
-		return <div>底部组件。。。</div>
+		return <div>底部组件。。。1212323</div>
 	}
 }

@@ -12,6 +12,9 @@ module.exports = {
 		filename: 'index.js',
 		path: path.resolve(__dirname, 'dist')
 	},
+	resolve: {
+		extensions: ['.js', '.jsx', '.json']
+	},
 	// mode: 'production',
 	mode: 'development',
 	// mode: 'none',
@@ -74,6 +77,6 @@ module.exports = {
 		new webpack.DefinePlugin({
 			BASE_URL: '"./"'
 		}),
-		new webpack.HotModuleReplacementPlugin()
+		// new webpack.HotModuleReplacementPlugin()
 	]
 }
