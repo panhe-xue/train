@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config lg.webpack.js",
-    "serve": "webpack serve --config lg.webpack.js"
+    "serve": "webpack serve --config lg.webpack.js",
+    "compiler": "node compiler.js"
   },
   "keywords": [],
   "author": "",
