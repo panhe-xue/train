@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bind</title>
+</head>
+<body>
+    <script>
+        // 1. 返回一个可执行的函数
+        // 2. 函数的this绑定到了第一个参数对象上
+        // 3. bind和执行的时候都可以传参数，且前者的优先级高
+        // 4. 返回结果为函数的返回结果
+        // Function.prototype.mybind = function(obj, ...arg) {
+        // }
+        // const package = {
+        //     main: 'index.js',
+        //     script: 'npm serve',
+        // }
+        // function readFile(a, b ,c) {
+        //     console.log(this.main, 'this.main');
+        //     console.log(a, b, c, 'a, b, c')
+        //     return c ? 'a' : 'b'
+        // }
+        var name = '333'
+        var a = {
+            name: '111',
+            say: function() {
+                console.log(this.name)
+            }
+        }
+        var b = {
+            name: '222',
+            say: function(fn) {
+                fn()
+            }
+        }
+        b.say(a.say)
+        
+
+    </script>
+</body>
+</html>
